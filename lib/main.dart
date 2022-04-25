@@ -10,7 +10,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ApiClient().getHeroes();
     return CupertinoApp(
       title: 'Flutter Demo',
       home: HomePage(),
@@ -29,7 +28,7 @@ class HomePage extends StatelessWidget {
         child: SafeArea(
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
+              children: const <Widget>[
                 Expanded(
                     child: HeroesList()
                 )
