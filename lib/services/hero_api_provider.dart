@@ -9,12 +9,13 @@ class HeroApiProvider {
   Future<List<Hero>> getHeroes() async {
     final json = await get('demos/marvel/') as List<dynamic>;
     final heroes = json.map((dynamic element) => Hero.fromJson(element as Map<String, dynamic>)).toList();
+    print (heroes);
     return heroes;
   }
 
   Future<dynamic> get(String endPoint) async {
-    // final url = Uri.parse('https://www.simplifiedcoding.net/demos/marvel/');
-    final url = Uri(scheme: 'https', host: 'www.simplifiedcoding.net', path: endPoint);
+    final url = Uri.parse('https://www.simplifiedcoding.net/$endPoint');
+    // final url = Uri(scheme: 'https', host: 'www.simplifiedcoding.net', path: endPoint);
     final request = await client.getUrl(url);
     final response = await request.close();
 
